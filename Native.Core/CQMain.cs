@@ -1,4 +1,7 @@
-﻿using System;
+﻿using cn.ylz1.custom.ping.Code.Event;
+using cn.ylz1.custom.ping.UI;
+using Native.Sdk.Cqp.Interface;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -18,7 +21,19 @@ namespace Native.Core
 		/// <param name="container">用于注册的 IOC 容器 </param>
 		public static void Register (IUnityContainer unityContainer)
 		{
-			
+			// 注入 Type=1001 的回调
+			unityContainer.RegisterType<ICQStartup, Event_CqStartup>("酷Q启动事件");
+			// 注入 Type=1002 的回调
+			unityContainer.RegisterType<ICQExit, Event_CqExit>("酷Q关闭事件");
+			// 注入 Type=1003 的回调
+			unityContainer.RegisterType<IAppEnable, Event_CqAppEnable>("应用已被启用");
+			// 注入 Type=1004 的回调
+			unityContainer.RegisterType<IAppDisable, Event_CqAppDisable>("应用将被停用");
+			//注入群消息回调
+			unityContainer.RegisterType<IGroupMessage, Event_GroupMessage>("群消息处理");
+			//注入私聊消息回调
+			unityContainer.RegisterType<IPrivateMessage, Event_PrivateMessage>("私聊消息处理");
+			unityContainer.RegisterType<IMenuCall, Menu_OpenWindow>("设置窗口");
 		}
 	}
 }

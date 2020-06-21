@@ -127,6 +127,7 @@
     <Compile Include="SQLite\SQLiteTransaction2.cs" />
     <Compile Include="SQLite\SQLiteTransactionBase.cs" />
     <Compile Include="SQLite\UnsafeNativeMethods.cs" />
+    <Compile Include="StrongString.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="SQLite\Configurations\System.Data.SQLite.dll.config" />

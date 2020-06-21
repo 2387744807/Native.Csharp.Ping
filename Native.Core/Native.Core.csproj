@@ -8,7 +8,7 @@
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Native.Core</RootNamespace>
-    <AssemblyName>Native.Core</AssemblyName>
+    <AssemblyName>cn.ylz1.custom.ping</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -127,6 +127,14 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\cn.ylz1.custom.ping.Code\cn.ylz1.custom.ping.Code.csproj">
+      <Project>{5c2ccb85-0f5f-4209-b912-2ff67528d10c}</Project>
+      <Name>cn.ylz1.custom.ping.Code</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\cn.ylz1.custom.ping.UI\cn.ylz1.custom.ping.UI.csproj">
+      <Project>{cf3d058a-b50d-41bd-b2ab-f1ce06f34a12}</Project>
+      <Name>cn.ylz1.custom.ping.UI</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Native.Sdk\Native.Sdk.csproj">
       <Project>{d7a958b3-79d9-49f8-8bb4-9619bab6ecba}</Project>
       <Name>Native.Sdk</Name>
@@ -164,6 +172,10 @@ rename "$(TargetDir)$(TargetName)\$(TargetName).dll" "app.dll"
 ) 
 if exist "$(TargetDir)app.json" (
 move "$(TargetDir)app.json" "$(TargetDir)$(TargetName)" 
-)</PostBuildEvent>
+)
+del "D:\code\VS_Tools\Code\酷QAir\dev\cn.ylz1.custom.ping\app.dll"
+del "D:\code\VS_Tools\Code\酷QAir\dev\cn.ylz1.custom.ping\app.json"
+move "$(TargetDir)$(TargetName)\app.dll" "D:\code\VS_Tools\Code\酷QAir\dev\cn.ylz1.custom.ping\app.dll"
+move "$(TargetDir)$(TargetName)\app.json" "D:\code\VS_Tools\Code\酷QAir\dev\cn.ylz1.custom.ping\app.json"</PostBuildEvent>
   </PropertyGroup>
 </Project>
